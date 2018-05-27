@@ -55,7 +55,7 @@ required.
 `struct ScatterVolume` precalculates parameters that change when processing along a
 beam or switching beams, but are constant in a fit. `struct Plasma` and
 `struct CollisionalPlasma` precalculate parameters that change in the fit
-(depending on $N_e$, $T_e$, $T_i$, $\nu_i$, composition), but are constant at
+(depending on N<sub>e</sub>, $T_e$, $T_i$, $\nu_i$, composition), but are constant at
 all the frequencies.
 
 So far only the power spectrum can be calculated: 
