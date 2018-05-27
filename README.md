@@ -25,11 +25,12 @@ incoherent scatter data, Radio Sci., 13(3), 581–589, doi:10.1029/RS013i003p005
 
 and FORTRAN IV code written by the same author,
 [iscatspe.for](https://github.com/stephancb/IScatterSpectrum.jl/blob/master/src/iscatspe.for).
+If needed for testing and verification,
 [ISfortran.jl](https://github.com/stephancb/IScatterSpectrum.jl/blob/master/src/ISfortran.jl)
 shows how the reference FORTRAN code can be called from Julia. Presently only
 the functions and COMMON BLOCK addresses to call the plasma dispersion function
-are provided. In the FORTRAN code the plasm dispersion
-function is calculated following the prescription in the book
+are provided. In the FORTRAN code the plasma dispersion function is calculated
+following the prescription in the book
 
 The Plasma Dispersion Function: The Hilbert Transform of the Gaussian, by Fried
 and Conte, Academic Press, 1961.
@@ -55,8 +56,8 @@ required.
 `struct ScatterVolume` precalculates parameters that change when processing along a
 beam or switching beams, but are constant in a fit. `struct Plasma` and
 `struct CollisionalPlasma` precalculate parameters that change in the fit
-(depending on N<sub>e</sub>, $T_e$, $T_i$, $\nu_i$, composition), but are constant at
-all the frequencies.
+(depending on N<sub>e</sub>, T<sub>e</sub>, T<sub>i</sub>, &nu;<sub>i</sub>,
+composition), but are constant at all the frequencies.
 
 So far only the power spectrum can be calculated: 
 `pwrspec(freq, p::Plasma, s::ScatterVolume)` and `pwrspec(p::Plasma,
@@ -71,15 +72,16 @@ package.
 To do
 -----
 
-* add the Fourier transform to ACFs. Swartz (1978) prefers a non-fast numerical 
+* add the Fourier transform to get ACFs. Swartz (1978) prefers a non-fast numerical 
   integration (because only few ACF lags are needed, but many frequencies). But
   this seems not ideal for parallel execution. Several articles on methods for fast
   calculation of Fourier integrals have in the meantime been published.
 
-* add the analytical derivatives with respect to  $N_e$, $T_e$, $T_i$, $\nu_i$,
-  composition. The conclusion in 1978 was that numerical derivatives are roughly
-  equally fast to calculate, but the analytical formulas seem still preferable,
-  after they have been laboriously calculated.
+* add the analytical derivatives with respect to N<sub>e</sub>, T<sub>e</sub>,
+  T<sub>i</sub>, &nu;<sub>i</sub>, composition. The conclusion in 1978 was that
+  numerical derivatives are roughly equally fast to calculate, but the
+  analytical formulas seem still preferable, after they have been laboriously
+  calculated.
 
 * explore possibilities for parallel execution.
 
