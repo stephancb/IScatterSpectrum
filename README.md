@@ -23,12 +23,13 @@ A reference is the article
 Swartz, W. E. (1978), Analytic partial derivatives for least‐squares fitting
 incoherent scatter data, Radio Sci., 13(3), 581–589, doi:10.1029/RS013i003p00581.
 
-and FORTRAN IV code written by the same author, [iscatspe.for](./src/iscatspe.for).
-[ISfortran.jl](./src/ISfortran.jl) shows how the reference FORTRAN code can be
-called from Julia. Presently only the functions and COMMON BLOCK addresses to
-call the plasma dispersion function are provided. In
-[iscatspe.for](./src/iscatspe.for) the plasm dispersion function is calculated
-following the prescription in the book
+and FORTRAN IV code written by the same author,
+[iscatspe.for](https://github.com/stephancb/IScatterSpectrum.jl/blob/master/src/iscatspe.for).
+[ISfortran.jl](https://github.com/stephancb/IScatterSpectrum.jl/blob/master/src/ISfortran.jl)
+shows how the reference FORTRAN code can be called from Julia. Presently only
+the functions and COMMON BLOCK addresses to call the plasma dispersion function
+are provided. In the FORTRAN code the plasm dispersion
+function is calculated following the prescription in the book
 
 The Plasma Dispersion Function: The Hilbert Transform of the Gaussian, by Fried
 and Conte, Academic Press, 1961.
@@ -37,7 +38,9 @@ Over most of the part which is interesting for the IS spectrum the prescription
 integrates a differential equation, which does not lend itself easily to
 parallel execution.
 
-In [IScatterSpectrum.jl](./src/IScatterSpectrum.jl) `erfcx` from the
+In
+[IScatterSpectrum.jl](https://github.com/stephancb/IScatterSpectrum.jl/blob/master/src/IScatterSpectrum.jl)
+`erfcx` from the
 [SpecialFunctions](http://juliamath.github.io/SpecialFunctions.jl/stable/index.html)
 package is used. Also `faddeeva` using the method of
 
